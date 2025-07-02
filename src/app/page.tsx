@@ -7,10 +7,10 @@ import { Flyout } from "@/core-ui/Flyout";
 
 
 const dummyCities = [
-  { name: "New York", condition: "Rain", temp: 19, icon: <span>🌧️</span> },
-  { name: "Tokyo", condition: "Partly cloudy", temp: 21, icon: <span>⛅</span> },
-  { name: "Sydney", condition: "Cloudy", temp: 18, icon: <span>☁️</span> },
-  { name: "Paris", condition: "Showers", temp: 17, icon: <span>🌦️</span> },
+  { name: "New York", condition: "Rain", temp: 19, icon: "🌧️" },
+  { name: "Tokyo", condition: "Partly cloudy", temp: 21, icon: "⛅" },
+  { name: "Sydney", condition: "Cloudy", temp: 18, icon: "☁️" },
+  { name: "Paris", condition: "Showers", temp: 17, icon: "🌦️" },
 ];
 
 export default function HomePage() {
