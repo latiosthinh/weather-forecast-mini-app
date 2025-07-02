@@ -9,12 +9,12 @@ interface TabsProps {
 
 export function Tabs({ tabs, active, onChange }: TabsProps) {
 	return (
-		<div className="flex md:justify-center border-b border-white/10">
+		<div className="flex md:justify-center">
 			{tabs.map((tab, idx) => (
 				<button
 					key={tab}
 					className={cn(
-						"px-4 py-2 font-medium transition cursor-pointer",
+						"px-4 py-1 font-medium transition cursor-pointer",
 						active === idx
 							? "border-b-2 border-yellow-400 text-white"
 							: "text-gray-300"
