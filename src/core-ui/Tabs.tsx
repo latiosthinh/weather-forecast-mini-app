@@ -9,7 +9,7 @@ interface TabsProps {
 
 export function Tabs({ tabs, active, onChange }: TabsProps) {
 	return (
-		<div className="flex border-b border-white/20">
+		<div className="flex md:justify-center border-b border-white/10">
 			{tabs.map((tab, idx) => (
 				<button
 					key={tab}
