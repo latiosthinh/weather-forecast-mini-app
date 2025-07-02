@@ -1,10 +1,6 @@
-"use client"
-
 import { CityWeatherGrid } from "@/components/CityWeatherGrid";
 import MainCityCard from "@/components/main-city";
 import { Flyout } from "@/core-ui/Flyout";
-
-
 
 const dummyCities = [
   { name: "New York", condition: "Rain", temp: 19, icon: "🌧️" },

@@ -1,3 +1,5 @@
+"use client"
+
 import { useState } from "react";
 import { HourlyForecast } from "./HourlyForecast";
 import { Tabs } from "@/core-ui/Tabs";

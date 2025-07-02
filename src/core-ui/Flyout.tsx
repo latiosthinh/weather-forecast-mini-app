@@ -1,4 +1,6 @@
-import { ReactNode, useEffect, useRef, useState } from "react";
+"use client"
+
+import { ReactNode, useEffect, useRef } from "react";
 import { cn } from "@/utils";
 import { createPortal } from "react-dom";
 import { useFlyoutStore } from "@/store/flyoutStore";
