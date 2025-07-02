@@ -38,3 +38,6 @@ next-env.d.ts
 *.lock
 *-lock.json
 .husky
+
+*storybook.log
+storybook-static

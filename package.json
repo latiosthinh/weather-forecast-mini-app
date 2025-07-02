@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "prepare": "husky"
+    "prepare": "husky",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "dependencies": {
     "next": "15.3.4",
@@ -16,18 +18,30 @@
     "tailwind-merge": "^3.3.1"
   },
   "devDependencies": {
+    "@chromatic-com/storybook": "4.0.1",
     "@commitlint/cli": "^19.8.1",
     "@commitlint/config-conventional": "^19.8.1",
     "@eslint/eslintrc": "^3",
+    "@storybook/addon-a11y": "9.0.15",
+    "@storybook/addon-docs": "9.0.15",
+    "@storybook/addon-vitest": "9.0.15",
+    "@storybook/nextjs": "^9.0.15",
+    "@storybook/nextjs-vite": "^9.0.15",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "@vitest/browser": "^3.2.4",
+    "@vitest/coverage-v8": "^3.2.4",
     "eslint": "^9",
     "eslint-config-next": "15.3.4",
+    "eslint-plugin-storybook": "9.0.15",
     "husky": "^9.1.7",
+    "playwright": "^1.53.2",
+    "storybook": "9.0.15",
     "tailwindcss": "^4",
-    "typescript": "^5"
+    "typescript": "^5",
+    "vitest": "^3.2.4"
   },
   "packageManager": "yarn@1.22.22+sha1.ac34549e6aa8e7ead463a7407e1c7390f61a6610"
 }
