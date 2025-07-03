@@ -1,16 +1,9 @@
 import { Card } from "@/core-ui/Card";
 import Text from "@/core-ui/Text";
-import { ReactNode } from "react";
-
-interface CityData {
-	name: string;
-	condition: string;
-	temp: number;
-	icon: ReactNode;
-}
+import { type City } from "@/types";
 
 interface CityWeatherGridProps {
-	cities: CityData[];
+	cities: City[];
 }
 
 export function CityWeatherGrid({ cities }: CityWeatherGridProps) {

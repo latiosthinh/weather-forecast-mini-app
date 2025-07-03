@@ -1,0 +1,16 @@
+import { Card } from "@/core-ui/Card";
+import Text from "@/core-ui/Text";
+import { type City } from "@/types";
+
+export default function CityCard({ city }: { city: City }) {
+	return (
+		<Card className="flex items-start p-4">
+			<div className="flex flex-col gap-1">
+				<Text variant="h2" className="text-lg">{city.name}</Text>
+				<Text>{city.condition}</Text>
+				<Text className="text-2xl font-bold">{city.temp}°</Text>
+			</div>
+			<span className="text-[60px]">{city.icon}</span>
+		</Card>
+	);
+}

@@ -24,3 +24,7 @@ body {
   color: var(--foreground);
   font-family: Helvetica, Arial, sans-serif;
 }
+
+.bg-gradient {
+  @apply bg-gradient-to-br from-purple-900 to-orange-500;
+}

@@ -5,7 +5,7 @@ export function Button({ children, className = "", ...props }: ButtonHTMLAttribu
 	return (
 		<button
 			className={cn(
-				"px-4 py-2 rounded-lg bg-yellow-400 text-white font-semibold hover:bg-yellow-500 transition",
+				"px-4 py-2 bg-white/10 text-white font-semibold hover:bg-black/20 cursor-pointer text-left transition",
 				className
 			)}
 			{...props}
