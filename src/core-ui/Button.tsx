@@ -19,7 +19,7 @@ export function IconButton({ icon, className = "", ...props }: ButtonHTMLAttribu
 	return (
 		<button
 			className={cn(
-				"p-2 rounded-full bg-white/10 hover:bg-white/20 transition",
+				"p-2 w-[50px] h-[50px] flex items-center justify-center hover:bg-white/20 transition cursor-pointer",
 				className
 			)}
 			{...props}

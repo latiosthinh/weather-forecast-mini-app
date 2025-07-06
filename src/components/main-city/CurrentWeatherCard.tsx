@@ -1,36 +1,38 @@
 import Text from "@/core-ui/Text";
-import { ReactNode } from "react";
+import { City } from "@/types";
+import { MapPin } from "lucide-react";
 
-interface CurrentWeatherCardProps {
-	city: string;
-	condition: string;
-	temp: number;
-	high: number;
-	low: number;
-	wind: number;
-	humidity: number;
-	icon: ReactNode;
-}
+export default function CurrentWeatherCard({ name, condition, temp, high, low, wind, humidity, icon }: City) {
+	const today = new Date();
+	const formattedDate = today.toLocaleDateString("en-SG", {
+		weekday: "long",
+		day: "numeric",
+		month: "long",
+	});
 
-export default function CurrentWeatherCard({ city, condition, temp, high, low, wind, humidity, icon }: CurrentWeatherCardProps) {
 	return (
-		<div className="flex w-full h-full justify-between gap-4">
-			<div className="flex flex-col justify-between w-full gap-4">
-				<Text variant="h1" className="text-2xl">{city}</Text>
+		<div className="flex flex-col justify-between w-full gap-4">
+			<div className="relative">
+				<Text variant="h1" className="text-4xl flex items-center gap-2 text-center justify-center">
+					<MapPin className="w-8 h-8" />
+					{name}
+				</Text>
+				<Text className="text-center mt-2">{formattedDate}</Text>
 
-				<div>
-					<Text>{condition}</Text>
-					<Text className="text-5xl font-bold">{temp}°C</Text>
+				<div className="flex items-center justify-center">
+					<Text className="text-[80px] text-center">{icon}</Text>
+
+					<div className="flex flex-col items-center justify-center">
+						<Text className="text-[32px] font-bold text-center">{temp}°C</Text>
+						<Text className="text-right">{condition}</Text>
+					</div>
 				</div>
-				<Text>H: {high}°  L: {low}°</Text>
 			</div>
-			<div className="flex flex-col items-center justify-between">
-				<span className="text-[100px]">{icon}</span>
+			<Text>H: {high}°  L: {low}°</Text>
 
-				<div className="flex items-center gap-4">
-					<Text>{wind} km/h</Text>
-					<Text>{humidity}%</Text>
-				</div>
+			<div className="flex items-center gap-4">
+				<Text>{wind} km/h</Text>
+				<Text>{humidity}%</Text>
 			</div>
 		</div>
 	);

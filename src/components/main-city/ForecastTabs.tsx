@@ -19,7 +19,7 @@ export default function ForecastTabs() {
 	return (
 		<div className="flex flex-col gap-4">
 			<Tabs
-				tabs={["HOURLY FORECAST", "5-DAY FORECAST"]}
+				tabs={["TODAY", "NEXT 5-DAY"]}
 				active={tab}
 				onChange={setTab}
 			/>

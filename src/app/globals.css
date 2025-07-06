@@ -25,6 +25,37 @@ body {
   font-family: Helvetica, Arial, sans-serif;
 }
 
-.bg-gradient {
-  @apply bg-gradient-to-br from-purple-900 to-orange-500;
+@layer utilities {
+  .bg-gradient {
+    @apply bg-gradient-to-br from-purple-900 to-orange-500;
+  }
+  
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .cool-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255,255,255, 0.2) transparent; /* thumb color, track color */
+  }
+  
+  .cool-scrollbar::-webkit-scrollbar {
+    width: 8px;
+    background: transparent;
+    border-radius: 8px;
+  }
+
+  .cool-scrollbar::-webkit-scrollbar-thumb {
+    background: rgba(255,255,255, 0.2);
+    border-radius: 8px;
+    border: 2px solid #e0e7ef;
+  }
+  
+  .cool-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: rgba(255,255,255, 0.3);
+  }
 }

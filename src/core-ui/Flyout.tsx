@@ -49,7 +49,7 @@ export function Flyout({
 				<div className="fixed inset-0 z-10 top-0 left-0 w-full h-full bg-black/30" onClick={closeFlyout} />
 				<Card
 					className={cn(
-						"fixed inset-0 z-50 top-0 h-full w-full max-w-full transition-transform duration-300 focus:outline-none md:w-80 rounded-none bg-gradient",
+						"fixed inset-0 z-50 top-0 h-full w-full max-w-full transition-transform duration-300 focus:outline-none md:w-96 rounded-none bg-gradient p-0",
 						side === "right"
 							? open
 								? "translate-x-0 right-0"
@@ -60,13 +60,7 @@ export function Flyout({
 						className
 					)}
 				>
-					<PanelLeftClose
-						onClick={closeFlyout}
-						className={cn(
-							"absolute bottom-4 rounded-full text-gray-300 hover:bg-black/10 focus:outline-none focus:ring-2 focus:ring-yellow-400 transition cursor-pointer",
-							side === "right" ? "right-4" : "left-4"
-						)} />
-					<div className="h-full overflow-y-auto">
+					<div className="h-full overflow-y-auto cool-scrollbar grid grid-cols-[50px_1fr]">
 						{children}
 					</div>
 				</Card>
