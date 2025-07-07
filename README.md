@@ -2,6 +2,8 @@
 
 A modern, component-driven weather forecast app for Singapore, built with Next.js, Zustand, and Storybook.
 
+![alt text](splash.png)
+
 ---
 
 ## Features
