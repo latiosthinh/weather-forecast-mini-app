@@ -14,14 +14,13 @@ export function SearchBar({ className }: { className?: string }) {
 	const { addCity } = useCityListStore();
 
 	const handleAddCity = (city: City) => {
-		addCity(city);
 		fetch("/api/get-weather-data", {
 			method: "POST",
 			body: JSON.stringify({ lat: city.lat, lon: city.lng, type: "current" }),
 		})
 			.then((response) => response.json())
 			.then((data) => {
-				console.log(data);
+				addCity({ ...city, ...data });
 			});
 		setKeyword("");
 		setCities([]);

@@ -1,17 +1,11 @@
-import { ReactNode } from "react";
+export type WeatherType = "current" | "daily";
+
+export type CityWeatherData = City & WeatherData;
 
 export type City = {
 	name: string;
 	lat?: string;
 	lng?: string;
-	capital?: string;
-	condition?: string;
-	temp?: number;
-	icon?: ReactNode;
-	high?: number;
-	low?: number;
-	wind?: number;
-	humidity?: number;
 }
 
 export type WeatherData = {
@@ -23,6 +17,7 @@ export type WeatherData = {
 		id: number;
 		main: string;
 		description: string;
+		icon: string;
 	}[];
 	base: string;
 	main: {

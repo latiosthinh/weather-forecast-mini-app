@@ -1,34 +1,23 @@
 "use client";
 
-import { type City } from "@/types";
-import CityCard from "./share/CityCard";
-import { DragDropContext, Droppable, Draggable, DropResult } from "@hello-pangea/dnd";
-import { useRef, useState } from "react";
+import { DragDropContext, Draggable, Droppable, DropResult } from "@hello-pangea/dnd";
 import { Menu } from "lucide-react";
+import CityCard from "./share/CityCard";
+import { useCityListStore } from "@/store/cityStore";
+import { CityWeatherData } from "@/types";
 
-interface CityWeatherGridProps {
-	cities: City[];
-	onReorder?: (cities: City[]) => void;
-}
-
-export function CityWeatherGrid({ cities: initialCities, onReorder }: CityWeatherGridProps) {
-	const [cities, setCities] = useState(initialCities);
-	const scrollRef = useRef<HTMLDivElement>(null);
+export function CityWeatherGrid() {
+	const { cityList, setCityList } = useCityListStore();
 
 	const onDragEnd = (result: DropResult) => {
 		if (!result.destination) return;
-		const reordered = Array.from(cities);
+		const reordered = Array.from(cityList);
 		const [removed] = reordered.splice(result.source.index, 1);
 		reordered.splice(result.destination.index, 0, removed);
-		setCities(reordered);
-		onReorder?.(reordered);
+		setCityList(reordered);
 	};
 
-	const scrollBy = (offset: number) => {
-		if (scrollRef.current) {
-			scrollRef.current.scrollBy({ left: offset, behavior: "smooth" });
-		}
-	};
+	if (cityList.length === 0) return null;
 
 	return (
 		<div className="relative w-full">
@@ -36,16 +25,11 @@ export function CityWeatherGrid({ cities: initialCities, onReorder }: CityWeathe
 				<Droppable droppableId="city-grid" direction="vertical">
 					{(provided) => (
 						<div
-							ref={(el) => {
-								scrollRef.current = el;
-								provided.innerRef(el);
-							}}
 							{...provided.droppableProps}
 							className="flex flex-col gap-4 w-full"
-							style={{}}
 						>
-							{cities.map((city, i) => (
-								<Draggable key={city.name} draggableId={city.name} index={i}>
+							{cityList.map((city: CityWeatherData, i) => (
+								<Draggable key={city.id} draggableId={city.id.toString()} index={i}>
 									{(provided, snapshot) => (
 										<div
 											ref={provided.innerRef}

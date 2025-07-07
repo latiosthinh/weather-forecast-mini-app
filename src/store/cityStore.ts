@@ -1,9 +1,9 @@
 import { create } from "zustand";
-import { City } from "@/types";
+import { CityWeatherData } from "@/types";
 
 interface SelectedCityState {
-	selectedCity: City | null;
-	setSelectedCity: (city: City) => void;
+	selectedCity: CityWeatherData | null;
+	setSelectedCity: (city: CityWeatherData) => void;
 }
 
 export const useSelectedCityStore = create<SelectedCityState>((set) => ({
@@ -13,9 +13,9 @@ export const useSelectedCityStore = create<SelectedCityState>((set) => ({
 
 
 interface CityListState {
-	cityList: City[];
-	setCityList: (cityList: City[]) => void;
-	addCity: (city: City) => void;
+	cityList: CityWeatherData[];
+	setCityList: (cityList: CityWeatherData[]) => void;
+	addCity: (city: CityWeatherData) => void;
 	removeCity: (cityName: string) => void;
 }
 
