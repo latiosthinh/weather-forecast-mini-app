@@ -4,7 +4,7 @@ import Text from "@/core-ui/Text";
 import { useCityListStore, useSelectedCityStore } from "@/store/cityStore";
 import { CityWeatherData } from "@/types";
 import { getWeatherIcon } from "@/utils";
-import { Menu, Minus } from "lucide-react";
+import { Menu } from "lucide-react";
 import Image from "next/image";
 
 export default function CityCard({ city }: { city: CityWeatherData }) {
@@ -13,6 +13,7 @@ export default function CityCard({ city }: { city: CityWeatherData }) {
 
 	const handlePinToMainScreen = (city: CityWeatherData) => {
 		setSelectedCity(city);
+		console.log(city);
 	}
 
 	const handleDeleteCity = (city: CityWeatherData) => {
@@ -22,9 +23,9 @@ export default function CityCard({ city }: { city: CityWeatherData }) {
 	return (
 		<Card className="flex flex-col items-center p-4 pt-8">
 			<Text variant="h2" className="text-lg">{city.name}</Text>
-			<Text className="text-sm capitalize">{city.weather[0].description}</Text>
-			<Image src={getWeatherIcon(city.weather[0].icon)} alt={city.weather[0].description} width={60} height={60} />
-			<Text className="text-lg font-bold">{city.main.temp}°C</Text>
+			<Text className="text-sm capitalize">{city.current.weather[0].description}</Text>
+			<Image src={getWeatherIcon(city.current.weather[0].icon)} alt={city.current.weather[0].description} width={60} height={60} />
+			<Text className="text-lg font-bold">{city.current.temp}°C</Text>
 
 			<Dropdown
 				align="right"

@@ -29,7 +29,7 @@ export default function CityWeatherList() {
 							className="flex flex-col gap-4 w-full"
 						>
 							{cityList.map((city: CityWeatherData, i) => (
-								<Draggable key={city.id} draggableId={city.id.toString()} index={i}>
+								<Draggable key={i} draggableId={i.toString()} index={i}>
 									{(provided, snapshot) => (
 										<div
 											ref={provided.innerRef}

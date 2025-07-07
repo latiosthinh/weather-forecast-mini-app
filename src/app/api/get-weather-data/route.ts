@@ -1,14 +1,13 @@
 import { NextResponse } from "next/server";
 
-
 export async function POST(request: Request) {
-	const { name } = await request.json();
+	const { name }: { name: string } = await request.json();
 
 	const apiKey = process.env.OPENWEATHER_API_KEY;
 	const cityApiUrl = process.env.OPENWEATHER_API_CITY_URL;
-	const currentWeatherUrl = process.env.OPENWEATHER_API_CURRENT_URL;
+	const oneCallApiUrl = process.env.OPENWEATHER_API_ONE_CALL_URL;
 
-	if (!apiKey || !cityApiUrl || !currentWeatherUrl) {
+	if (!apiKey || !cityApiUrl || !oneCallApiUrl) {
 		return NextResponse.json({ error: "API key or URLs not set" }, { status: 500 });
 	}
 
@@ -17,8 +16,8 @@ export async function POST(request: Request) {
 
 	const { lat, lon } = dataCities[0];
 
-	const responseCurrentWeather = await fetch(`${currentWeatherUrl}?lat=${lat}&lon=${lon}&exclude=minutely,alerts&units=metric&appid=${apiKey}`);
-	const dataCurrentWeather = await responseCurrentWeather.json();
+	const response = await fetch(`${oneCallApiUrl}?lat=${lat}&lon=${lon}&exclude=minutely,alerts&units=metric&appid=${apiKey}`);
+	const data = await response.json();
 
-	return NextResponse.json(dataCurrentWeather, { status: 200 });
+	return NextResponse.json(data, { status: 200 });
 }
