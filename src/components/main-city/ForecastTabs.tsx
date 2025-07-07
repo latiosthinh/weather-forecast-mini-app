@@ -1,24 +1,34 @@
 "use client"
 
+import Text from "@/core-ui/Text";
+import { useForecastSettingsStore } from "@/store/menuSettingsStore";
+import { ChevronsRightIcon } from "lucide-react";
+import Link from "next/link";
 import { useState } from "react";
-import { HourlyForecast } from "./HourlyForecast";
-import { Tabs } from "@/core-ui/Tabs";
+import DailyForecast from "./DailyForcast";
+import HourlyForecast from "./HourlyForecast";
+import { useSelectedCityStore } from "@/store/cityStore";
 
 export default function ForecastTabs() {
 	const [tab, setTab] = useState(0);
+	const { forecastDays } = useForecastSettingsStore();
+	const { selectedCity } = useSelectedCityStore();
 
 	return (
-		<div className="flex flex-col gap-4">
-			<Tabs
-				tabs={["TODAY", "NEXT 5-DAY"]}
-				active={tab}
-				onChange={setTab}
-			/>
+		<div className="flex flex-col gap-2">
+			<div className="flex justify-between">
+				<Text className="uppercase text-white border-b-2 border-yellow-500">Today</Text>
+
+				<Link href={`/daily-forecast?city=${selectedCity?.name.toLowerCase().replace(" ", "_")}&days=${forecastDays}`} className="flex items-center gap-1">
+					<Text className="uppercase text-white">Next {forecastDays} days</Text>
+					<ChevronsRightIcon className="w-5 h-5 text-white" />
+				</Link>
+			</div>
 			<div className="h-full">
 				{tab === 0 ? (
 					<HourlyForecast />
 				) : (
-					<div className="mt-4 text-center text-gray-300">5-Day Forecast Coming Soon</div>
+					<DailyForecast />
 				)}
 			</div>
 		</div>

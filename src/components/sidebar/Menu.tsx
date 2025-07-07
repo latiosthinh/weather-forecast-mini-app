@@ -1,5 +1,5 @@
 import { IconButton } from "@/core-ui/Button";
-import { useFlyoutStore, useMenuStore } from "@/store/flyoutStore";
+import { useFlyoutStore, useMenuStore } from "@/store/menuSettingsStore";
 import { cn } from "@/utils";
 import { PanelLeftClose, Search, Settings } from "lucide-react";
 

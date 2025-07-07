@@ -5,7 +5,7 @@ import { getWeatherIcon } from "@/utils";
 import Image from "next/image";
 import { useRef } from "react";
 
-export function HourlyForecast() {
+export default function HourlyForecast() {
 	const { selectedCity } = useSelectedCityStore();
 	const scrollRef = useRef<HTMLDivElement>(null);
 	let isDown = false;
@@ -65,10 +65,10 @@ export function HourlyForecast() {
 				onMouseMove={handleMouseMove}
 			>
 				{hours?.map((h, i) => (
-					<Card key={i} className="flex flex-col items-center justify-center min-w-[130px]">
+					<Card key={i} className="flex flex-col items-center justify-between min-w-[140px]">
 						<Text className="text-sm text-white uppercase">{h.time}</Text>
 						<Image src={h.icon} alt={h.description} width={70} height={70} className="pointer-events-none" />
-						<Text className="text-xs capitalize text-white">{h.description}</Text>
+						<Text className="text-xs capitalize text-white whitespace-nowrap">{h.description}</Text>
 						<Text className="text-lg font-semibold text-white">{Math.round(h.temp)}°C</Text>
 					</Card>
 				))}

@@ -1,7 +1,7 @@
 "use client";
 
 import { Flyout } from "@/core-ui/Flyout";
-import { useFlyoutStore, useMenuStore } from "@/store/flyoutStore";
+import { useFlyoutStore, useMenuStore } from "@/store/menuSettingsStore";
 import { AlignLeft } from "lucide-react";
 import Menu from "./Menu";
 import SearchPage from "./SearchPage";

@@ -1,6 +1,6 @@
 "use client"
 
-import { useFlyoutStore } from "@/store/flyoutStore";
+import { useFlyoutStore } from "@/store/menuSettingsStore";
 import { cn } from "@/utils";
 import { PanelLeftClose } from "lucide-react";
 import { ReactNode, useEffect, useRef } from "react";

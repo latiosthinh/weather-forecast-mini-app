@@ -13,7 +13,6 @@ export default function CityCard({ city }: { city: CityWeatherData }) {
 
 	const handlePinToMainScreen = (city: CityWeatherData) => {
 		setSelectedCity(city);
-		console.log(city);
 	}
 
 	const handleDeleteCity = (city: CityWeatherData) => {
