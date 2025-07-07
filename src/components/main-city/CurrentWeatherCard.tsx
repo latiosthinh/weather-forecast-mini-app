@@ -19,7 +19,7 @@ export default function CurrentWeatherCard() {
 	if (!selectedCity) return null;
 
 	return (
-		<div className="flex flex-col justify-between w-full gap-4">
+		<div className="flex flex-col justify-between w-full gap-4" data-testid="current-weather-card">
 			<div className="relative">
 				<Text variant="h1" className="text-4xl flex items-center gap-2 text-center justify-center">
 					<MapPin className="w-8 h-8" />

@@ -20,7 +20,7 @@ export default function CityCard({ city }: { city: CityWeatherData }) {
 	}
 
 	return (
-		<Card className="flex flex-col items-center p-4 pt-8">
+		<Card className="flex flex-col items-center p-4 pt-8" data-testid="city-card">
 			<Text variant="h2" className="text-lg">{city.name}</Text>
 			<Text className="text-sm capitalize">{city.current.weather[0].description}</Text>
 			<Image src={getWeatherIcon(city.current.weather[0].icon)} alt={city.current.weather[0].description} width={60} height={60} />
@@ -28,7 +28,7 @@ export default function CityCard({ city }: { city: CityWeatherData }) {
 
 			<Dropdown
 				align="right"
-				trigger={<Menu className="w-4 h-4 rounded cursor-pointer hover:bg-white/20 transition" />}
+				trigger={<Menu data-testid="city-card-menu-button" className="w-4 h-4 rounded cursor-pointer hover:bg-white/20 transition" />}
 				className="absolute top-2 right-2"
 				actions={[
 					{

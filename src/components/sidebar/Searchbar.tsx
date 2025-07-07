@@ -59,16 +59,18 @@ export function SearchBar({ className }: { className?: string }) {
 				onChange={(e) => setKeyword(e.target.value)}
 				onFocus={() => setIsFocused(true)}
 				onBlur={() => setTimeout(() => setIsFocused(false), 100)}
+				data-testid="search-input"
 			/>
 
 			{cities.length > 0 && isFocused && (
-				<div className="flex flex-col mt-1 rounded-md overflow-y-auto cool-scrollbar max-h-60 absolute top-full left-0 w-full z-50">
+				<div className="flex flex-col mt-1 rounded-md overflow-y-auto cool-scrollbar max-h-60 absolute top-full left-0 w-full z-50" data-testid="search-results">
 					{cities.map((city, index) => (
 						<div key={index} className="w-full [&:not(:last-child)]:border-b border-black/10 bg-white py-2 px-4 flex items-center justify-between">
 							<span className="text-black">{city.name}</span>
 
 							<button
 								className="text-white cursor-pointer p-1 bg-purple-400 rounded hover:bg-orange-500 transition"
+								data-testid="add-city-button"
 								title="Add to list"
 								onMouseDown={e => { e.preventDefault(); handleAddCity(city); }}>
 								<PinIcon className="w-4 h-4" />

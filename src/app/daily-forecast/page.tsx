@@ -19,7 +19,7 @@ export default function DailyForecastPage() {
 	const daily = selectedCity.daily.slice(0, forecastDays);
 
 	return (
-		<div className="flex flex-col gap-8">
+		<div className="flex flex-col gap-8 max-md:p-4 max-md:min-w-screen md:max-w-lg mx-auto">
 			<div className="flex flex-col gap-2">
 				<Link href={"/"} className="flex items-center gap-1 text-white/50 hover:text-white transition-colors">
 					<ChevronLeftIcon className="w-4 h-4" />
@@ -35,7 +35,7 @@ export default function DailyForecastPage() {
 
 			<div className="max-w-lg md:min-w-md flex flex-col gap-2 overflow-y-auto cool-scrollbar max-h-[500px]">
 				{daily.map((day, i) => (
-					<Card key={i} className="flex items-center gap-6 p-4">
+					<Card key={i} className="flex items-center flex-col md:flex-row w-full gap-6 p-4">
 						<Text className="w-32 text-lg font-semibold">
 							{new Date(day.dt * 1000).toLocaleDateString("en-SG", { weekday: "long", month: "short", day: "numeric" })}
 						</Text>

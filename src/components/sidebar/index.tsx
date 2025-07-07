@@ -8,7 +8,7 @@ import SearchPage from "./SearchPage";
 import SettingsPage from "./SettingsPage";
 
 export default function Sidebar() {
-	const { open, toggleFlyout } = useFlyoutStore();
+	const { open, openFlyout } = useFlyoutStore();
 	const { active } = useMenuStore();
 
 	return (
@@ -21,7 +21,7 @@ export default function Sidebar() {
 				</Flyout>
 			)}
 
-			{!open && <AlignLeft onClick={toggleFlyout} className="fixed bottom-4 left-4 text-white cursor-pointer" />}
+			{!open && <AlignLeft data-testid="open-menu" onClick={openFlyout} className="fixed bottom-4 left-4 text-white cursor-pointer" />}
 		</>
 	);
 }

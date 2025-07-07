@@ -19,7 +19,7 @@ export default function ForecastTabs() {
 			<div className="flex justify-between">
 				<Text className="uppercase text-white border-b-2 border-yellow-500">Today</Text>
 
-				<Link href={`/daily-forecast?city=${selectedCity?.name.toLowerCase().replace(" ", "_")}&days=${forecastDays}`} className="flex items-center gap-1">
+				<Link href={`/daily-forecast?city=${selectedCity?.name.toLowerCase().replaceAll(" ", "_")}&days=${forecastDays}`} className="flex items-center gap-1">
 					<Text className="uppercase text-white">Next {forecastDays} days</Text>
 					<ChevronsRightIcon className="w-5 h-5 text-white" />
 				</Link>

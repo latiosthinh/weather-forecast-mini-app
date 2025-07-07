@@ -63,6 +63,7 @@ export const Dropdown: React.FC<DropdownProps> = ({ trigger, actions, menuClassN
 					{actions.map((action, i) => (
 						<button
 							key={i}
+							data-testid={`${action.label.toLowerCase().replaceAll(" ", "-")}`}
 							className={cn("w-full min-w-content whitespace-nowrap cursor-pointer flex items-center gap-2 px-4 py-2 text-left text-sm bg-white text-black hover:bg-gray-200 transition", action.className)}
 							onClick={() => {
 								setOpen(false);

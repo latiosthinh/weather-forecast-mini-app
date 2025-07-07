@@ -5,7 +5,7 @@ export default function SettingsPage() {
 	const { refetchInterval, setRefetchInterval } = useRefetchIntervalStore();
 
 	return (
-		<div className="p-4">
+		<div className="p-4" data-testid="settings-page">
 			<h2 className="text-lg font-bold mb-4">Settings</h2>
 			<div className="mb-4">
 				<label htmlFor="forecast-days" className="block mb-1 font-medium">Daily forecast</label>
