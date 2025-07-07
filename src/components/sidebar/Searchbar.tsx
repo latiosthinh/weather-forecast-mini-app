@@ -6,6 +6,7 @@ import { City } from "@/types";
 import { cn } from "@/utils";
 import { PinIcon } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
+import { sgCities } from "@/data/sgCities";
 
 export function SearchBar({ className }: { className?: string }) {
 	const [keyword, setKeyword] = useState("");
@@ -16,7 +17,7 @@ export function SearchBar({ className }: { className?: string }) {
 	const handleAddCity = (city: City) => {
 		fetch("/api/get-weather-data", {
 			method: "POST",
-			body: JSON.stringify({ lat: city.lat, lon: city.lng, type: "current" }),
+			body: JSON.stringify({ name: city.name }),
 		})
 			.then((response) => response.json())
 			.then((data) => {
@@ -31,16 +32,8 @@ export function SearchBar({ className }: { className?: string }) {
 		if (timeoutRef.current) clearTimeout(timeoutRef.current);
 
 		timeoutRef.current = setTimeout(() => {
-			fetch("/api/search-city", {
-				method: "POST",
-				body: JSON.stringify({ query: keyword }),
-			})
-				.then((response) => response.json())
-				.then((data) => {
-					setCities(data);
-				});
+			setCities(sgCities.filter(city => city.toLowerCase().includes(keyword.toLowerCase())).map(city => ({ name: city })));
 		}, 300);
-
 		return () => {
 			if (timeoutRef.current) clearTimeout(timeoutRef.current);
 		};

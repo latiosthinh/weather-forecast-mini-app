@@ -1,12 +1,11 @@
 "use client";
 
 import { DragDropContext, Draggable, Droppable, DropResult } from "@hello-pangea/dnd";
-import { Menu } from "lucide-react";
-import CityCard from "./share/CityCard";
+import CityCard from "../share/CityCard";
 import { useCityListStore } from "@/store/cityStore";
 import { CityWeatherData } from "@/types";
 
-export function CityWeatherGrid() {
+export default function CityWeatherList() {
 	const { cityList, setCityList } = useCityListStore();
 
 	const onDragEnd = (result: DropResult) => {
@@ -22,10 +21,11 @@ export function CityWeatherGrid() {
 	return (
 		<div className="relative w-full">
 			<DragDropContext onDragEnd={onDragEnd}>
-				<Droppable droppableId="city-grid" direction="vertical">
+				<Droppable droppableId="city-list" direction="vertical">
 					{(provided) => (
 						<div
 							{...provided.droppableProps}
+							ref={provided.innerRef}
 							className="flex flex-col gap-4 w-full"
 						>
 							{cityList.map((city: CityWeatherData, i) => (
@@ -34,6 +34,7 @@ export function CityWeatherGrid() {
 										<div
 											ref={provided.innerRef}
 											{...provided.draggableProps}
+											{...provided.dragHandleProps}
 											style={{
 												...provided.draggableProps.style,
 												opacity: snapshot.isDragging ? 0.7 : 1,
@@ -41,13 +42,6 @@ export function CityWeatherGrid() {
 												position: 'relative',
 											}}
 										>
-											<div
-												className="absolute top-2 left-2 cursor-move z-10"
-												tabIndex={0}
-												{...provided.dragHandleProps}
-											>
-												<Menu className="w-4 h-4" />
-											</div>
 											<CityCard city={city} />
 										</div>
 									)}
@@ -60,4 +54,4 @@ export function CityWeatherGrid() {
 			</DragDropContext>
 		</div>
 	);
-} 
+}
