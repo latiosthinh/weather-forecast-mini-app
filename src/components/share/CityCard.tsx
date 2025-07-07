@@ -1,16 +1,21 @@
 import { Card } from "@/core-ui/Card";
+import { Dropdown } from "@/core-ui/Dropdown";
 import Text from "@/core-ui/Text";
-import { useCityListStore } from "@/store/cityStore";
+import { useCityListStore, useSelectedCityStore } from "@/store/cityStore";
 import { CityWeatherData } from "@/types";
 import { getWeatherIcon } from "@/utils";
-import { Minus } from "lucide-react";
+import { Menu, Minus } from "lucide-react";
 import Image from "next/image";
 
 export default function CityCard({ city }: { city: CityWeatherData }) {
 	const { removeCity } = useCityListStore();
+	const { setSelectedCity } = useSelectedCityStore();
 
-	const handleDeleteCity = (e: React.MouseEvent<SVGSVGElement>, city: CityWeatherData) => {
-		e.stopPropagation();
+	const handlePinToMainScreen = (city: CityWeatherData) => {
+		setSelectedCity(city);
+	}
+
+	const handleDeleteCity = (city: CityWeatherData) => {
 		removeCity(city.name);
 	}
 
@@ -21,9 +26,21 @@ export default function CityCard({ city }: { city: CityWeatherData }) {
 			<Image src={getWeatherIcon(city.weather[0].icon)} alt={city.weather[0].description} width={60} height={60} />
 			<Text className="text-lg font-bold">{city.main.temp}°C</Text>
 
-			<Minus className="w-4 h-4 bg-black rounded cursor-pointer hover:bg-black/50 transition absolute top-2 right-2"
-				onClick={e => handleDeleteCity(e, city)}
+			<Dropdown
+				align="right"
+				trigger={<Menu className="w-4 h-4 rounded cursor-pointer hover:bg-white/20 transition" />}
+				className="absolute top-2 right-2"
+				actions={[
+					{
+						label: "Pin to main screen",
+						onClick: () => handlePinToMainScreen(city),
+					},
+					{
+						label: "Delete",
+						onClick: () => handleDeleteCity(city),
+					},
+				]}
 			/>
-		</Card>
+		</Card >
 	);
 }
