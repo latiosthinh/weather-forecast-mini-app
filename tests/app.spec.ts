@@ -3,7 +3,7 @@ import { test, expect } from '@playwright/test';
 // Update this to a city that exists in your sgCities data
 const TEST_CITY = 'SINGAPORE';
 
-const BASE_URL = 'http://localhost:3001';
+const BASE_URL = 'http://localhost:3000';
 
 // Selectors
 const openMenuButton = '[data-testid="open-menu"]';
