@@ -1,6 +1,4 @@
-import { useForecastSettingsStore } from "@/store/menuSettingsStore";
-import { useRefetchIntervalStore } from "@/store/menuSettingsStore";
-import { useState } from "react";
+import { useForecastSettingsStore, useRefetchIntervalStore } from "@/store/menuSettingsStore";
 
 export default function SettingsPage() {
 	const { forecastDays, setForecastDays } = useForecastSettingsStore();
