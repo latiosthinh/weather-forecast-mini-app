@@ -1,16 +1,13 @@
 "use client"
 
 import Text from "@/core-ui/Text";
+import { useSelectedCityStore } from "@/store/cityStore";
 import { useForecastSettingsStore } from "@/store/menuSettingsStore";
 import { ChevronsRightIcon } from "lucide-react";
 import Link from "next/link";
-import { useState } from "react";
-import DailyForecast from "./DailyForcast";
 import HourlyForecast from "./HourlyForecast";
-import { useSelectedCityStore } from "@/store/cityStore";
 
 export default function ForecastTabs() {
-	const [tab, setTab] = useState(0);
 	const { forecastDays } = useForecastSettingsStore();
 	const { selectedCity } = useSelectedCityStore();
 
@@ -24,13 +21,7 @@ export default function ForecastTabs() {
 					<ChevronsRightIcon className="w-5 h-5 text-white" />
 				</Link>
 			</div>
-			<div className="h-full">
-				{tab === 0 ? (
-					<HourlyForecast />
-				) : (
-					<DailyForecast />
-				)}
-			</div>
+			<HourlyForecast />
 		</div>
 	);
 }

@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/nextjs';
 import Text from '@/core-ui/Text';
+import "@/app/globals.css";
 
 const meta = {
 	title: 'Atoms/Text',

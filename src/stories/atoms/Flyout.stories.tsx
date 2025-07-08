@@ -18,17 +18,17 @@ type Story = StoryObj<typeof Flyout>;
 
 export const Default: Story = {
 	args: {
-		side: "left",
+		side: "right",
 		children: "This is a flyout content.",
 	},
 	render: (args) => {
-		const { openFlyout, closeFlyout } = useFlyoutStore();
+		const { openFlyout } = useFlyoutStore();
 		return (
 			<div>
 				<button className="bg-blue-500 text-white p-2 rounded-md cursor-pointer" onClick={openFlyout}>Open Flyout</button>
-				<Flyout>
+				<Flyout side={args.side}>
 					<div className="p-4">
-						<p>This is a flyout content.</p>
+						<p>{args.children}</p>
 					</div>
 				</Flyout>
 			</div>

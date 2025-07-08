@@ -1,14 +1,13 @@
-import { InputHTMLAttributes, forwardRef } from "react";
 import { cn } from "@/utils";
+import { SearchIcon } from "lucide-react";
+import { InputHTMLAttributes, forwardRef } from "react";
 
 export interface InputProps extends InputHTMLAttributes<HTMLInputElement> { }
 
 export const Input = forwardRef<HTMLInputElement, InputProps>(
 	({ className, ...props }, ref) => (
 		<div className="relative">
-			<span className="absolute left-3 top-1/2 -translate-y-1/2 text-white">
-				<svg width="20" height="20" fill="none" stroke="currentColor"><circle cx="9" cy="9" r="7" /><line x1="15" y1="15" x2="19" y2="19" /></svg>
-			</span>
+			<SearchIcon className="absolute left-3 top-1/2 -translate-y-1/2 text-white" />
 			<input
 				ref={ref}
 				className={cn(
@@ -20,4 +19,3 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
 		</div>
 	)
 );
-Input.displayName = "Input"; 

@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Input } from "@/core-ui/Input";
+import "@/app/globals.css";
 
 const meta: Meta<typeof Input> = {
 	title: "Core UI/Input",

@@ -30,7 +30,7 @@ export function Flyout({
 		};
 		window.addEventListener("keydown", handleKeyDown);
 		return () => window.removeEventListener("keydown", handleKeyDown);
-	}, [open]);
+	}, [open, closeFlyout]);
 
 	// Focus trap
 	useEffect(() => {

@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/nextjs';
 import { fn } from 'storybook/test';
 import { Button } from '@/core-ui/Button';
+import "@/app/globals.css";
 
 const meta = {
   title: 'Atoms/Button',

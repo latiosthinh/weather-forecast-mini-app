@@ -1,5 +1,4 @@
 import MainCityCard from "@/components/main-city";
-import Sidebar from "@/components/sidebar";
 
 export default function HomePage() {
 
