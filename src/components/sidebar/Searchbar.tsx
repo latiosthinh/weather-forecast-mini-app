@@ -14,10 +14,11 @@ export function SearchBar({ className }: { className?: string }) {
 	const [isFocused, setIsFocused] = useState(false);
 	const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 	const inputRef = useRef<HTMLInputElement>(null);
-	const { addCity, cityList } = useCityListStore();
+	const { addCity, cityList, setLoading } = useCityListStore();
 
 	const handleAddCity = (city: City) => {
 		if (inputRef.current) inputRef.current.blur();
+		setLoading(true);
 		fetch("/api/get-weather-data", {
 			method: "POST",
 			body: JSON.stringify({ name: city.name }),
@@ -25,6 +26,9 @@ export function SearchBar({ className }: { className?: string }) {
 			.then((response) => response.json())
 			.then((data) => {
 				addCity({ ...city, ...data });
+			})
+			.finally(() => {
+				setLoading(false);
 			});
 		setKeyword("");
 		setCities([]);

@@ -1,12 +1,13 @@
 "use client";
 
-import { DragDropContext, Draggable, Droppable, DropResult } from "@hello-pangea/dnd";
-import CityCard from "../share/CityCard";
+import Spinner from "@/core-ui/Spinner";
 import { useCityListStore } from "@/store/cityStore";
 import { CityWeatherData } from "@/types";
+import { DragDropContext, Draggable, Droppable, DropResult } from "@hello-pangea/dnd";
+import CityCard from "../share/CityCard";
 
 export default function CityWeatherList() {
-	const { cityList, setCityList } = useCityListStore();
+	const { cityList, setCityList, loading } = useCityListStore();
 
 	const onDragEnd = (result: DropResult) => {
 		if (!result.destination) return;
@@ -48,6 +49,7 @@ export default function CityWeatherList() {
 								</Draggable>
 							))}
 							{provided.placeholder}
+							{loading && <Spinner />}
 						</div>
 					)}
 				</Droppable>

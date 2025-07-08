@@ -24,6 +24,8 @@ interface CityListState {
 	setCityList: (cityList: CityWeatherData[]) => void;
 	addCity: (city: CityWeatherData) => void;
 	removeCity: (cityName: string) => void;
+	loading: boolean;
+	setLoading: (loading: boolean) => void;
 }
 
 export const useCityListStore = create(
@@ -33,6 +35,8 @@ export const useCityListStore = create(
 			setCityList: (cityList) => set({ cityList }),
 			addCity: (city) => set((state) => ({ cityList: [...state.cityList, city] })),
 			removeCity: (cityName) => set((state) => ({ cityList: state.cityList.filter((c) => c.name.toLowerCase().trim() !== cityName.toLowerCase().trim()) })),
+			loading: false,
+			setLoading: (loading) => set({ loading }),
 		}),
 		{
 			name: "city-list-store",
