@@ -8,7 +8,7 @@ interface DropdownAction {
 	className?: string;
 }
 
-interface DropdownProps {
+export interface DropdownProps {
 	trigger: React.ReactNode;
 	actions: DropdownAction[];
 	menuClassName?: string;

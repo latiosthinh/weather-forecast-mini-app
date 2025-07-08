@@ -2,7 +2,6 @@
 
 import { useFlyoutStore } from "@/store/menuSettingsStore";
 import { cn } from "@/utils";
-import { PanelLeftClose } from "lucide-react";
 import { ReactNode, useEffect, useRef } from "react";
 import { createPortal } from "react-dom";
 import { Card } from "./Card";
