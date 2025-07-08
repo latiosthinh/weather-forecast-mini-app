@@ -1,6 +1,6 @@
 import { Flyout } from "@/core-ui/Flyout";
 import { useFlyoutStore } from "@/store/menuSettingsStore";
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/nextjs";
 import "@/app/globals.css";
 
 const meta: Meta<typeof Flyout> = {

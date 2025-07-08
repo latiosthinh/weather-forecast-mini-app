@@ -19,10 +19,10 @@ export function NormalText({ children, className = "" }: TextProps) {
 export default function Text({ children, className = "", variant = "p" }: TextProps) {
 	switch (variant) {
 		case "h1":
-			return <Title children={children} className={className} />;
+			return <Title className={className}>{children}</Title>;
 		case "h2":
-			return <Subtitle children={children} className={className} />;
+			return <Subtitle className={className}>{children}</Subtitle>;
 		case "p":
-			return <NormalText children={children} className={className} />;
+			return <NormalText className={className}>{children}</NormalText>;
 	}
 }

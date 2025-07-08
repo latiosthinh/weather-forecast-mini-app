@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/nextjs";
 import { Dropdown, DropdownProps } from "@/core-ui/Dropdown";
 import "@/app/globals.css";
 

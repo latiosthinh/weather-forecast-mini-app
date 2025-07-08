@@ -2,9 +2,7 @@ import { cn } from "@/utils";
 import { SearchIcon } from "lucide-react";
 import { InputHTMLAttributes, forwardRef } from "react";
 
-export interface InputProps extends InputHTMLAttributes<HTMLInputElement> { }
-
-export const Input = forwardRef<HTMLInputElement, InputProps>(
+export const Input = forwardRef<HTMLInputElement, InputHTMLAttributes<HTMLInputElement>>(
 	({ className, ...props }, ref) => (
 		<div className="relative">
 			<SearchIcon className="absolute left-3 top-1/2 -translate-y-1/2 text-white" />
@@ -19,3 +17,4 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
 		</div>
 	)
 );
+Input.displayName = "Input";
