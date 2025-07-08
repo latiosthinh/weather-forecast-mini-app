@@ -14,7 +14,7 @@ export function SearchBar({ className }: { className?: string }) {
 	const [isFocused, setIsFocused] = useState(false);
 	const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 	const inputRef = useRef<HTMLInputElement>(null);
-	const { addCity } = useCityListStore();
+	const { addCity, cityList } = useCityListStore();
 
 	const handleAddCity = (city: City) => {
 		if (inputRef.current) inputRef.current.blur();
@@ -64,19 +64,33 @@ export function SearchBar({ className }: { className?: string }) {
 
 			{cities.length > 0 && isFocused && (
 				<div className="flex flex-col mt-1 rounded-md overflow-y-auto cool-scrollbar max-h-60 absolute top-full left-0 w-full z-50" data-testid="search-results">
-					{cities.map((city, index) => (
-						<div key={index} className="w-full [&:not(:last-child)]:border-b border-black/10 bg-white py-2 px-4 flex items-center justify-between">
-							<span className="text-black">{city.name}</span>
+					{cities.map((city, index) => {
+						const alreadyAdded = cityList.some(
+							(c) => c.name.trim().toLowerCase() === city.name.trim().toLowerCase()
+						);
+						return (
+							<div key={index} className="w-full [&:not(:last-child)]:border-b border-black/10 bg-white py-2 px-4 flex items-center justify-between">
+								<span className="text-black">{city.name}</span>
 
-							<button
-								className="text-white cursor-pointer p-1 bg-purple-400 rounded hover:bg-orange-500 transition"
-								data-testid="add-city-button"
-								title="Add to list"
-								onMouseDown={e => { e.preventDefault(); handleAddCity(city); }}>
-								<PinIcon className="w-4 h-4" />
-							</button>
-						</div>
-					))}
+								<button
+									className={cn(
+										"text-white cursor-pointer p-1 bg-purple-400 rounded hover:bg-orange-500 transition",
+										alreadyAdded && "opacity-50 cursor-not-allowed hover:bg-purple-400"
+									)}
+									data-testid="add-city-button"
+									title={alreadyAdded ? "City already added" : "Add to list"}
+									onMouseDown={e => {
+										if (alreadyAdded) return;
+										e.preventDefault();
+										handleAddCity(city);
+									}}
+									disabled={alreadyAdded}
+								>
+									<PinIcon className="w-4 h-4" />
+								</button>
+							</div>
+						);
+					})}
 				</div>
 			)}
 		</div>
