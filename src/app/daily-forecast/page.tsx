@@ -36,12 +36,12 @@ export default function DailyForecastPage() {
 			<div className="max-w-lg md:min-w-md flex flex-col gap-2 overflow-y-auto cool-scrollbar max-h-[500px]">
 				{daily.map((day, i) => (
 					<Card key={i} className="flex items-center flex-col md:flex-row w-full gap-6 p-4">
-						<Text className="w-32 text-lg font-semibold">
+						<Text className="w-32 text-lg font-semibold max-md:whitespace-nowrap">
 							{new Date(day.dt * 1000).toLocaleDateString("en-SG", { weekday: "long", month: "short", day: "numeric" })}
 						</Text>
 						<Image src={getWeatherIcon(day.weather[0].icon)} alt={day.weather[0].description} width={60} height={60} />
 						<div className="flex flex-col flex-1">
-							<Text className="capitalize text-white text-base">{day.weather[0].description}</Text>
+							<Text className="capitalize text-white text-base max-md:text-center">{day.weather[0].description}</Text>
 							<Text className="text-sm text-white/50">{day.summary}</Text>
 						</div>
 						<div className="flex flex-col items-end min-w-[80px]">
