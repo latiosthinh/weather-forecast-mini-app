@@ -25,7 +25,7 @@ export const Story = {
 	},
 	render: (args: DropdownProps) => {
 		return (
-			<div>
+			<div className="w-full flex justify-center items-center min-h-[400px] bg-gradient p-4">
 				<Dropdown trigger={<button className="bg-blue-500 text-white p-2 rounded-md cursor-pointer">Open Dropdown</button>} actions={args.actions} />
 			</div>
 		);

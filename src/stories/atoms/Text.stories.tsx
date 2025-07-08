@@ -3,7 +3,7 @@ import Text from '@/core-ui/Text';
 import "@/app/globals.css";
 
 const meta = {
-	title: 'Atoms/Text',
+	title: 'Core UI/Text',
 	component: Text,
 	parameters: {
 		layout: 'centered',
@@ -26,6 +26,11 @@ export const Title: Story = {
 		children: 'Title',
 		variant: 'h1',
 	},
+	render: (args) => (
+		<div className="w-screen flex justify-center items-center min-h-[200px] bg-gradient p-4">
+			<Text {...args} />
+		</div>
+	),
 };
 
 export const Subtitle: Story = {
@@ -33,6 +38,11 @@ export const Subtitle: Story = {
 		children: 'Subtitle',
 		variant: 'h2',
 	},
+	render: (args) => (
+		<div className="w-screen flex justify-center items-center min-h-[200px] bg-gradient p-4">
+			<Text {...args} />
+		</div>
+	),
 };
 
 export const NormalText: Story = {
@@ -40,4 +50,9 @@ export const NormalText: Story = {
 		children: 'Normal Text',
 		variant: 'p',
 	},
+	render: (args) => (
+		<div className="w-screen flex justify-center items-center min-h-[200px] bg-gradient p-4">
+			<Text {...args} />
+		</div>
+	),
 };

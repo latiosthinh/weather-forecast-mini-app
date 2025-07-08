@@ -4,7 +4,7 @@ import { Button } from '@/core-ui/Button';
 import "@/app/globals.css";
 
 const meta = {
-  title: 'Atoms/Button',
+  title: 'Core UI/Button',
   component: Button,
   parameters: {
     layout: 'centered',
@@ -23,6 +23,11 @@ export const Default: Story = {
   args: {
     children: 'Button',
   },
+  render: (args) => (
+    <div className="w-screen flex justify-center items-center min-h-[200px] bg-gradient p-4">
+      <Button {...args} />
+    </div>
+  ),
 };
 
 // export const Secondary: Story = {

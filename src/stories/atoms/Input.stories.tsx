@@ -12,6 +12,11 @@ export default meta;
 type Story = StoryObj<typeof Input>;
 
 export const Default: Story = {
+	render: (args) => (
+		<div className="w-full flex justify-center items-center min-h-[200px] bg-gradient p-4">
+			<Input {...args} />
+		</div>
+	),
 	args: {
 		placeholder: "Type here...",
 	},
@@ -22,4 +27,9 @@ export const Disabled: Story = {
 		placeholder: "Disabled input",
 		disabled: true,
 	},
+	render: (args) => (
+		<div className="w-full flex justify-center items-center min-h-[200px] bg-gradient p-4">
+			<Input {...args} />
+		</div>
+	),
 }; 

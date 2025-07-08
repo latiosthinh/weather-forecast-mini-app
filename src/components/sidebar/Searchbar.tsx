@@ -4,7 +4,7 @@ import { Input } from "@/core-ui/Input";
 import { useCityListStore } from "@/store/cityStore";
 import { City } from "@/types";
 import { cn } from "@/utils";
-import { PinIcon } from "lucide-react";
+import { PinIcon, SearchIcon } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { sgCities } from "@/data/sgCities";
 
@@ -64,6 +64,7 @@ export function SearchBar({ className }: { className?: string }) {
 				onFocus={() => setIsFocused(true)}
 				onBlur={() => setTimeout(() => setIsFocused(false), 100)}
 				data-testid="search-input"
+				icon={<SearchIcon className="text-white" />}
 			/>
 
 			{cities.length > 0 && isFocused && (

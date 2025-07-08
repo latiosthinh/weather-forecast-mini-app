@@ -15,6 +15,11 @@ export const Default: Story = {
 	args: {
 		children: "Default Card",
 	},
+	render: (args) => (
+		<div className="w-full flex justify-center items-center min-h-[200px] bg-gradient p-4">
+			<Card {...args} />
+		</div>
+	),
 };
 
 export const WithPadding: Story = {
@@ -22,4 +27,9 @@ export const WithPadding: Story = {
 		children: "Card with extra padding",
 		className: "p-8",
 	},
+	render: (args) => (
+		<div className="w-full flex justify-center items-center min-h-[200px] bg-gradient p-4">
+			<Card {...args} />
+		</div>
+	),
 }; 
