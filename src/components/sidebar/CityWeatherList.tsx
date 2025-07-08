@@ -30,7 +30,7 @@ export default function CityWeatherList() {
 							className="flex flex-col gap-4 w-full"
 						>
 							{cityList.map((city: CityWeatherData, i) => (
-								<Draggable key={i} draggableId={i.toString()} index={i}>
+								<Draggable key={city.name.trim()} draggableId={city.name.trim()} index={i}>
 									{(provided, snapshot) => (
 										<div
 											ref={provided.innerRef}
@@ -40,7 +40,6 @@ export default function CityWeatherList() {
 												...provided.draggableProps.style,
 												opacity: snapshot.isDragging ? 0.7 : 1,
 												userSelect: 'none',
-												position: 'relative',
 											}}
 										>
 											<CityCard city={city} />
